@@ -1,0 +1,64 @@
+
+<h1>{{contieneDatos == null ? "Crear usuario" : "Modificar usuario"}}</h1>
+<button class="btn btn-warning" *ngIf="contieneDatos != null" style="margin:20px; margin-left:0" type="button" (click)="EditContrasena()">Ir a cambiar contraseña</button>
+
+<form [formGroup]="usuario" (ngSubmit)="disenarUsuario()" class="form">
+
+  <div>
+    <label>Correo</label>
+    <input type="email" formControlName="correo" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.correo.errors }" />
+    <div *ngIf="precionado && errorLlenado.correo.errors" class="invalid-feedback">
+      <div *ngIf="errorLlenado.correo.errors.required">Campo correo requerido (ejemplo@correo.com)</div>
+    </div>
+  </div>
+
+  <div>
+    <label>Usuario</label>
+    <input type="text" formControlName="usuario" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.usuario.errors }" />
+    <div *ngIf="precionado && errorLlenado.usuario.errors" class="invalid-feedback">
+      <div *ngIf="errorLlenado.usuario.errors.required">Campo usuario requerido (7 caracteres minimo)</div>
+    </div>
+  </div>
+
+  <div *ngIf="contieneDatos == null">
+    <label>Estatus</label>
+    <div *ngIf="precionado && errorLlenado.estatus.errors" class="invalid-feedback">
+      <div *ngIf="errorLlenado.estatus.errors.required">Campo estatus requerido</div>
+    </div>
+    <select class="form-select form-select-sm" style="width: 100px" formControlName="estatus" [ngClass]="{ 'is-invalid': precionado && errorLlenado.estatus.errors }">
+      <option value="true">Activo</option>
+      <option value="false">Inactivo</option>
+    </select>
+  </div>
+
+  <div>
+    <label>Sexo</label>
+    <div *ngIf="precionado && errorLlenado.sexo.errors" class="invalid-feedback">
+      <div *ngIf="errorLlenado.sexo.errors.required">Campo sexo requerido</div>
+    </div>
+    <select class="form-select form-select-sm" style="width: 120px" formControlName="sexo" [ngClass]="{ 'is-invalid': precionado && errorLlenado.sexo.errors }">
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select>
+  </div>
+
+  <div *ngIf="contieneDatos == null">
+    <label>Contraseña</label>
+    <input type="password" formControlName="contrasena" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.contrasena.errors }" />
+    <div *ngIf="precionado && errorLlenado.contrasena.errors" class="invalid-feedback">
+      <div *ngIf="errorLlenado.contrasena.errors.required">Campo contraseña requerido (10 caracteres minimo, una mayúscula, minúscula, símbolo, numero)</div>
+    </div>
+  </div>
+
+  <div *ngIf="contieneDatos == null">
+    <label>Repetir contraseña</label>
+    <input type="password" formControlName="rContrasena" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.rContrasena.errors || contIguales == false}" />
+    <div *ngIf="precionado && errorLlenado.rContrasena.errors && contIguales == false" class="invalid-feedback">
+      <div *ngIf="errorLlenado.rContrasena.errors.required || contIguales == false">Campo contraseña requerido</div>
+      <div *ngIf="contIguales == false">Las contraseñas no coinciden</div>
+    </div>
+  </div>
+
+  <button class="btn btn-primary" type="submit" style="margin:20px">{{contieneDatos != null ? 'Editar' : 'Agregar'}}</button>  
+  <button class="btn btn-dark" type="button" style="margin:20px" [routerLink]="['/']">Regresar</button>
+</form>

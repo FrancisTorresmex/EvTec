@@ -1,0 +1,31 @@
+<div class="card" style="display:flex; margin:auto">
+  <div class="card-body">
+    <div class="card-title"><h1>Iniciar sesión</h1></div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="iniciar()">
+
+      <div>
+        <label>Correo</label>
+        <input type="email" formControlName="correo" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.correo.errors }" />
+        <div *ngIf="precionado && errorLlenado.correo.errors" class="invalid-feedback">
+          <div *ngIf="errorLlenado.correo.errors.required">Escribe tu correo</div>
+        </div>
+      </div>
+
+      <div>
+        <label>Contraseña</label>
+        <input type="password" formControlName="contrasena" class="form-control" [ngClass]="{ 'is-invalid': precionado && errorLlenado.contrasena.errors }" />
+        <div *ngIf="precionado && errorLlenado.contrasena.errors" class="invalid-feedback">
+          <div *ngIf="errorLlenado.contrasena.errors.required">Escribe tu contraseña</div>
+        </div>
+      </div>
+
+      <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+
+    </form>
+
+  </div>
+</div>
+
+
+
