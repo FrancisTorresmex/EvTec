@@ -2,11 +2,11 @@
 Sistema con diseño en capas, creado con .Net Core y Angular para el registro y alta de usuarios, así como la administración de acceso y roles de estos. 
 
 ## Notas: 😼
-> El proyecto trabaja usando First Code, debes ejecutar la conexión por consola usando la base de datos EvTec.
+> El proyecto trabaja usando First Code, deberas ejecutar el archivo SQL  llamado EvTec.sql para la creación de la base de datos junto a las tablas. Una vez realizado el paso anterior, deberas ejecutar la conexión por consola usando la base de datos EvTec.  
 
-> El proyecto EvTec es el API encargado de dar el servicio (junto a la capa Datos, Negocio y utilidades).
+> El proyecto EvTec es la aplicación en Angular encargado de hacer las peticiones al API y mostrar el diseño(de prueba).
 
-> El proyecto WSEvTec es el Web service encargado de hacer las peticiones al API y mostrar el diseño(de prueba)
+> El proyecto WSEvTec es el el Web Service(API), encargado de dar el servicio (junto a la capa Datos, Negocio y utilidades). 
 
 ## Conexión a base por consola 🦇
 > Si el usuario en SQL Server es de windows
