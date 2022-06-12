@@ -1,8 +1,13 @@
 # EvTec
 Sistema con diseño en capas, creado con .Net Core y Angular para el registro y alta de usuarios, así como la administración de acceso y roles de estos. 
 
+## Base de datos: 😼
+> El proyecto trabaja usando First Code, así que deberas ejecutar el archivo SQL llamado `EvTec.sql` para la creación de la base de datos junto a las tablas. 
+> Una vez realizado el paso anterior, deberas ejecutar la conexión por consola usando la base de datos EvTec(Descrito en el paso `Conexión a base por consola`).  
+
+
 ## Notas: 😼
-> El proyecto trabaja usando First Code, deberas ejecutar el archivo SQL  llamado EvTec.sql para la creación de la base de datos junto a las tablas. Una vez realizado el paso anterior, deberas ejecutar la conexión por consola usando la base de datos EvTec.  
+> El archivo EvTec.sql es el script sql para la creación de la base de datos.
 
 > El proyecto EvTec es la aplicación en Angular encargado de hacer las peticiones al API y mostrar el diseño(de prueba).
 
